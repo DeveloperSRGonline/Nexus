@@ -1,0 +1,13 @@
+.board {
+  display: flex;
+  gap: $space-4;
+  height: 100%;
+  overflow-x: auto;
+  padding-bottom: $space-4;
+  align-items: flex-start;
+  @include custom-scrollbar;
+
+  @include mobile {
+    gap: $space-3;
+  }
+}

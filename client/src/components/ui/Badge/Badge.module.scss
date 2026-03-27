@@ -1,0 +1,76 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  border-radius: $radius-full;
+  font-weight: $font-medium;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// Sizes
+.sm {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+.md {
+  font-size: $text-xs;
+  padding: 3px 8px;
+}
+.lg {
+  font-size: $text-sm;
+  padding: 4px 10px;
+}
+
+// Variants
+.default {
+  background: $bg-elevated;
+  color: $text-secondary;
+}
+.todo {
+  background: rgba(85, 85, 85, 0.2);
+  color: $color-todo;
+}
+.in_progress {
+  background: rgba(59, 130, 246, 0.15);
+  color: $color-inprogress;
+}
+.review {
+  background: rgba(245, 158, 11, 0.15);
+  color: $color-review;
+}
+.done {
+  background: rgba(34, 197, 94, 0.15);
+  color: $color-done;
+}
+.cancelled {
+  background: rgba(239, 68, 68, 0.15);
+  color: $color-cancelled;
+}
+.low {
+  background: rgba(107, 114, 128, 0.15);
+  color: $priority-low;
+}
+.medium {
+  background: rgba(59, 130, 246, 0.15);
+  color: $priority-medium;
+}
+.high {
+  background: rgba(245, 158, 11, 0.15);
+  color: $priority-high;
+}
+.urgent {
+  background: rgba(239, 68, 68, 0.15);
+  color: $priority-urgent;
+}
+.accent {
+  background: $accent-dim;
+  color: $accent;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+  background: currentColor;
+}

@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  cursor: grab;
+  transition: $transition-fast;
+  user-select: none;
+  margin-right: 0.3rem;
+
+  &:hover {
+    border-color: $border-default;
+    background: $bg-hover;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.strip {
+  width: 3px;
+  border-radius: $radius-lg 0 0 $radius-lg;
+  flex-shrink: 0;
+}
+
+.body {
+  flex: 1;
+  padding: $space-3;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.title {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $text-primary;
+  line-height: $line-normal;
+}
+
+.desc {
+  font-size: $text-xs;
+  color: $text-muted;
+  @include truncate;
+}
+
+.footer {
+  @include flex-between;
+  gap: $space-2;
+}
+
+.date {
+  @include flex-start;
+  gap: 3px;
+  font-size: 10px;
+  color: $text-muted;
+
+  &.overdue {
+    color: $color-cancelled;
+  }
+}

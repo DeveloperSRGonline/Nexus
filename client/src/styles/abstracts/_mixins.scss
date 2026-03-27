@@ -54,7 +54,7 @@
 
 @mixin card-base {
   background: $bg-surface;
-  border: 1px solid $border-susbtle;
+  border: 1px solid $border-subtle;
   border-radius: $radius-lg;
   transition: $transition-normal;
   &:hover {
@@ -63,7 +63,7 @@
 }
 
 @mixin custom-scrollbar {
-  &::-webkit-scrollbar       { width: 4px; height: 4px; }
+  &::-webkit-scrollbar       { width: 3px; height: 4px; }
   &::-webkit-scrollbar-track { background: transparent; }
   &::-webkit-scrollbar-thumb { background: $bg-active; border-radius: $radius-full; }
 }

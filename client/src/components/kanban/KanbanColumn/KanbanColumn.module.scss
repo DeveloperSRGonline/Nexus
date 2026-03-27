@@ -1,0 +1,83 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-xl;
+  padding: $space-4;
+  min-width: 280px;
+  max-width: 320px;
+  flex-shrink: 0;
+  height: 100vh;
+  max-height: calc(100vh - 200px);
+  transition: border-color 0.15s ease;
+
+  &.over {
+    border-color: $accent;
+    background: rgba(163, 230, 53, 0.03);
+  }
+}
+
+.header {
+  @include flex-between;
+}
+
+.label {
+  @include flex-start;
+  gap: $space-2;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $text-primary;
+}
+
+.count {
+  font-size: $text-xs;
+  color: $text-muted;
+  background: $bg-elevated;
+  border-radius: $radius-full;
+  padding: 1px 7px;
+}
+
+.addBtn {
+  @include flex-center;
+  width: 24px;
+  height: 24px;
+  border-radius: $radius-sm;
+  color: $text-muted;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $bg-hover;
+    color: $accent;
+  }
+}
+
+.cards {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $space-2;
+  overflow-y: auto;
+  min-height: 80px;
+  @include custom-scrollbar;
+}
+
+.empty {
+  @include flex-center;
+  height: 60px;
+  font-size: $text-xs;
+  color: $text-muted;
+  border: 1px dashed $border-subtle;
+  border-radius: $radius-md;
+}

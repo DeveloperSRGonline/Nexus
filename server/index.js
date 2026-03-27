@@ -5,6 +5,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import connectDB from "./src/config/db.js";
 import errorHandler from "./src/middleware/errorHandler.js";
+import taskRoutes from "./src/routes/taskRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -18,6 +19,8 @@ app.use(express.json());
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
+
+app.use("/api/tasks",taskRoutes);
 
 app.use(errorHandler);
 

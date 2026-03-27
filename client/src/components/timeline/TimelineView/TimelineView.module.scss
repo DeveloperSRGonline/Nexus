@@ -1,0 +1,122 @@
+.wrapper {
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-xl;
+  background: $bg-surface;
+}
+
+.scroll {
+  overflow-x: auto;
+  @include custom-scrollbar;
+}
+
+.header {
+  display: flex;
+  border-bottom: 1px solid $border-subtle;
+  position: sticky;
+  top: 0;
+  background: $bg-surface;
+  z-index: 10;
+}
+
+.labelCol {
+  width: 200px;
+  flex-shrink: 0;
+  padding: $space-2 $space-4;
+  border-right: 1px solid $border-subtle;
+}
+
+.grid {
+  display: flex;
+  position: relative;
+  flex: 1;
+}
+
+.headerCell {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-2 0;
+  border-right: 1px solid $border-subtle;
+
+  &.todayCol {
+    background: $accent-dim;
+    .dayNum,
+    .dayName {
+      color: $accent;
+    }
+  }
+}
+
+.dayNum {
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  color: $text-primary;
+  line-height: 1;
+}
+
+.dayName {
+  font-size: 9px;
+  color: $text-muted;
+  margin-top: 2px;
+}
+
+.row {
+  display: flex;
+  border-bottom: 1px solid $border-subtle;
+  min-height: 44px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.01);
+  }
+}
+
+.taskName {
+  font-size: $text-xs;
+  color: $text-secondary;
+  @include truncate;
+}
+
+.cell {
+  flex-shrink: 0;
+  border-right: 1px solid $border-subtle;
+  height: 44px;
+}
+
+.todayLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: $accent;
+  opacity: 0.6;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  border-radius: $radius-full;
+  opacity: 0.85;
+  z-index: 4;
+  cursor: pointer;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.empty {
+  @include flex-center;
+  padding: $space-12;
+  font-size: $text-sm;
+  color: $text-muted;
+}

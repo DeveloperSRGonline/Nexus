@@ -1,0 +1,102 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.header {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-3;
+}
+
+.titleRow {
+  @include flex-start;
+  gap: $space-3;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $text-primary;
+  }
+}
+
+.count {
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  padding: 2px 8px;
+  background: $bg-elevated;
+  border-radius: $radius-full;
+  color: $text-muted;
+}
+
+.loader {
+  @include flex-center;
+  padding: $space-16;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.groupHeader {
+  @include flex-start;
+  gap: $space-2;
+  padding: 0 $space-1;
+}
+
+.groupDot {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+
+  &.todo {
+    background: $color-todo;
+  }
+  &.in_progress {
+    background: $color-inprogress;
+  }
+  &.review {
+    background: $color-review;
+  }
+  &.done {
+    background: $color-done;
+  }
+  &.cancelled {
+    background: $color-cancelled;
+  }
+}
+
+.groupLabel {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $text-secondary;
+}
+
+.groupCount {
+  font-size: $text-xs;
+  color: $text-muted;
+  background: $bg-elevated;
+  border-radius: $radius-full;
+  padding: 1px 7px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}

@@ -1,0 +1,107 @@
+.card {
+  @include card-base;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+
+  &:hover {
+    background: $bg-hover;
+  }
+}
+
+.strip {
+  width: 3px;
+  border-radius: $radius-lg 0 0 $radius-lg;
+  flex-shrink: 0;
+}
+
+.body {
+  flex: 1;
+  padding: $space-3 $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.top {
+  @include flex-between;
+  gap: $space-2;
+  position: relative;
+}
+
+.title {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $text-primary;
+  @include truncate;
+  flex: 1;
+}
+
+.desc {
+  font-size: $text-xs;
+  color: $text-muted;
+  @include truncate;
+}
+
+.meta {
+  @include flex-start;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.date {
+  @include flex-start;
+  gap: 4px;
+  font-size: 10px;
+  color: $text-muted;
+  margin-left: auto;
+
+  &.overdue {
+    color: $color-cancelled;
+  }
+}
+
+.menuBtn {
+  @include flex-center;
+  width: 24px;
+  height: 24px;
+  border-radius: $radius-sm;
+  color: $text-muted;
+  flex-shrink: 0;
+  &:hover {
+    background: $bg-active;
+    color: $text-secondary;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 50;
+  background: $bg-elevated;
+  border: 1px solid $border-default;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  min-width: 140px;
+  padding: $space-1;
+
+  button {
+    @include flex-start;
+    gap: $space-2;
+    width: 100%;
+    padding: $space-2 $space-3;
+    font-size: $text-sm;
+    color: $text-secondary;
+    border-radius: $radius-sm;
+    &:hover {
+      background: $bg-hover;
+      color: $text-primary;
+    }
+
+    &.danger {
+      color: $color-cancelled;
+    }
+  }
+}

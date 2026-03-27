@@ -1,0 +1,29 @@
+.switcher {
+  @include flex-start;
+  gap: 2px;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-lg;
+  padding: 3px;
+}
+
+.btn {
+  @include flex-start;
+  gap: $space-2;
+  padding: $space-1 $space-3;
+  border-radius: $radius-md;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $text-muted;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $text-secondary;
+    background: $bg-hover;
+  }
+
+  &.active {
+    background: $bg-elevated;
+    color: $text-primary;
+  }
+}

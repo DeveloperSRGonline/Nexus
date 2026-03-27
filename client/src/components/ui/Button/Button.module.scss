@@ -1,0 +1,73 @@
+.btn {
+  @include flex-center;
+  gap: $space-2;
+  border-radius: $radius-md;
+  font-weight: $font-medium;
+  transition: $transition-fast;
+  @include focus-ring;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Sizes
+.sm {
+  font-size: $text-xs;
+  padding: $space-1 $space-3;
+  height: 28px;
+}
+.md {
+  font-size: $text-sm;
+  padding: $space-2 $space-4;
+  height: 36px;
+}
+.lg {
+  font-size: $text-base;
+  padding: $space-3 $space-5;
+  height: 44px;
+}
+
+// Variants
+.primary {
+  background: $accent;
+  color: #000;
+  font-weight: $font-semibold;
+  &:hover:not(:disabled) {
+    background: $accent-hover;
+  }
+}
+
+.secondary {
+  background: $bg-elevated;
+  color: $text-secondary;
+  border: 1px solid $border-default;
+  &:hover:not(:disabled) {
+    background: $bg-hover;
+    color: $text-primary;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $text-secondary;
+  &:hover:not(:disabled) {
+    background: $bg-hover;
+    color: $text-primary;
+  }
+}
+
+.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: $color-cancelled;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  &:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.25);
+  }
+}
+
+.icon {
+  display: flex;
+}

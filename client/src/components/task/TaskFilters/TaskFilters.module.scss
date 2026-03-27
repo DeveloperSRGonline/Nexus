@@ -1,0 +1,108 @@
+.bar {
+  @include flex-start;
+  gap: $space-2;
+  flex-wrap: wrap;
+  padding: $space-3 0;
+}
+
+.group {
+  @include flex-start;
+  gap: $space-1;
+  flex-wrap: wrap;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: $border-subtle;
+}
+
+.pill {
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  border: 1px solid $border-subtle;
+  color: $text-muted;
+  transition: $transition-fast;
+
+  &:hover {
+    border-color: $border-default;
+    color: $text-secondary;
+  }
+}
+
+// Active state
+.active {
+  border-color: $accent !important;
+  color: $accent !important;
+  background: $accent-dim !important;
+}
+
+// Status tints
+.todo {
+  &.active {
+    color: $color-todo;
+    border-color: $color-todo;
+  }
+}
+.in_progress {
+  &.active {
+    color: $color-inprogress;
+    border-color: $color-inprogress;
+  }
+}
+.review {
+  &.active {
+    color: $color-review;
+    border-color: $color-review;
+  }
+}
+.done {
+  &.active {
+    color: $color-done;
+    border-color: $color-done;
+  }
+}
+.cancelled {
+  &.active {
+    color: $color-cancelled;
+    border-color: $color-cancelled;
+  }
+}
+.low {
+  &.active {
+    color: $priority-low;
+    border-color: $priority-low;
+  }
+}
+.medium {
+  &.active {
+    color: $priority-medium;
+    border-color: $priority-medium;
+  }
+}
+.high {
+  &.active {
+    color: $priority-high;
+    border-color: $priority-high;
+  }
+}
+.urgent {
+  &.active {
+    color: $priority-urgent;
+    border-color: $priority-urgent;
+  }
+}
+
+.clear {
+  font-size: $text-xs;
+  color: $color-cancelled;
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  transition: $transition-fast;
+  &:hover {
+    background: rgba(239, 68, 68, 0.1);
+  }
+}

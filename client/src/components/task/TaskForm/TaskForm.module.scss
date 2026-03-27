@@ -1,0 +1,134 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  @include flex-center;
+  padding: $space-4;
+}
+
+.modal {
+  background: $bg-surface;
+  border: 1px solid $border-default;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.header {
+  @include flex-between;
+  padding: $space-5 $space-6;
+  border-bottom: 1px solid $border-subtle;
+
+  h3 {
+    font-size: $text-base;
+    font-weight: $font-semibold;
+    color: $text-primary;
+  }
+}
+
+.closeBtn {
+  @include flex-center;
+  color: $text-muted;
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.body {
+  padding: $space-5 $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.titleInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $border-default;
+  padding: $space-2 0;
+  font-size: $text-lg;
+  font-weight: $font-medium;
+  color: $text-primary;
+  outline: none;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+  &:focus {
+    border-bottom-color: $accent;
+  }
+}
+
+.descInput {
+  width: 100%;
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  padding: $space-3;
+  font-size: $text-sm;
+  color: $text-primary;
+  outline: none;
+  resize: vertical;
+  @include focus-ring;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  label {
+    font-size: $text-xs;
+    color: $text-muted;
+    font-weight: $font-medium;
+  }
+
+  input,
+  select {
+    background: $bg-elevated;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    padding: $space-2 $space-3;
+    font-size: $text-sm;
+    color: $text-primary;
+    outline: none;
+    @include focus-ring;
+
+    &:focus {
+      border-color: $border-default;
+    }
+  }
+
+  select option {
+    background: $bg-elevated;
+  }
+}
+
+.footer {
+  @include flex-between;
+  padding: $space-4 $space-6;
+  border-top: 1px solid $border-subtle;
+  gap: $space-3;
+  justify-content: flex-end;
+}

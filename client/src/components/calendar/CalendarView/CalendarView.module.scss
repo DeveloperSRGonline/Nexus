@@ -1,0 +1,182 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.controls {
+  @include flex-start;
+  gap: $space-3;
+}
+
+.month {
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $text-primary;
+  min-width: 160px;
+  text-align: center;
+}
+
+.navBtn {
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-md;
+  color: $text-secondary;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  transition: $transition-fast;
+
+  &:hover { border-color: $border-default; color: $text-primary; }
+}
+
+.todayBtn {
+  margin-left: auto;
+  font-size: $text-xs;
+  padding: $space-1 $space-3;
+  border-radius: $radius-md;
+  border: 1px solid $border-subtle;
+  color: $text-muted;
+  background: $bg-surface;
+  transition: $transition-fast;
+
+  &:hover { color: $accent; border-color: $accent; }
+}
+
+.dayLabels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.dayLabel {
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  color: $text-muted;
+  text-align: center;
+  padding: $space-2 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cell {
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  padding: $space-2;
+  min-height: 80px;
+  cursor: pointer;
+  transition: $transition-fast;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  &:hover { border-color: $border-default; background: $bg-hover; }
+
+  &.outside { opacity: 0.3; }
+
+  &.today .dateNum {
+    background: $accent;
+    color: #000;
+    border-radius: $radius-full;
+    width: 22px;
+    height: 22px;
+    @include flex-center;
+    font-weight: $font-bold;
+  }
+
+  &.selected {
+    border-color: $accent;
+    background: $accent-dim;
+  }
+}
+
+.dateNum {
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $text-secondary;
+  line-height: 1;
+}
+
+.taskDots {
+  @include flex-start;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: auto;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: $radius-full;
+  cursor: pointer;
+
+  &[data-priority='urgent'] { background: $priority-urgent; }
+  &[data-priority='high']   { background: $priority-high; }
+  &[data-priority='medium'] { background: $priority-medium; }
+  &[data-priority='low']    { background: $priority-low; }
+}
+
+.more {
+  font-size: 9px;
+  color: $text-muted;
+}
+
+// Day detail panel
+.dayDetail {
+  background: $bg-surface;
+  border: 1px solid $border-default;
+  border-radius: $radius-xl;
+  padding: $space-4 $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.detailHeader {
+  @include flex-between;
+
+  span {
+    font-size: $text-sm;
+    font-weight: $font-semibold;
+    color: $text-primary;
+  }
+}
+
+.addBtn {
+  font-size: $text-xs;
+  color: $accent;
+  padding: $space-1 $space-3;
+  border-radius: $radius-md;
+  border: 1px solid $accent-dim;
+  transition: $transition-fast;
+
+  &:hover { background: $accent-dim; }
+}
+
+.noTasks {
+  font-size: $text-sm;
+  color: $text-muted;
+  text-align: center;
+  padding: $space-4;
+}
+
+.detailList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.detailTask {
+  @include flex-start;
+  @include card-base;
+  gap: $space-3;
+  padding: $space-3;
+  cursor: pointer;
+  font-size: $text-sm;
+  color: $text-primary;
+}
