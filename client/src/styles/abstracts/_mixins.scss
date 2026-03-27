@@ -1,0 +1,75 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin heading($size) {
+  font-size: $size;
+  font-weight: $font-bold;
+  line-height: $line-tight;
+  color: $text-primary;
+}
+
+@mixin body-text {
+  font-size: $text-sm;
+  font-weight: $font-normal;
+  line-height: $line-normal;
+  color: $text-secondary;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin card-base {
+  background: $bg-surface;
+  border: 1px solid $border-susbtle;
+  border-radius: $radius-lg;
+  transition: $transition-normal;
+  &:hover {
+    border-color: $border-default;
+  }
+}
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar       { width: 4px; height: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: $bg-active; border-radius: $radius-full; }
+}
+
+
+@mixin focus-ring {
+  outline: none;
+  &:focus-visible { box-shadow: 0 0 0 2px $accent; }
+}

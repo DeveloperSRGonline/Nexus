@@ -1,0 +1,24 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+  background-color: $bg-base;
+  color: $text-primary;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+::selection {
+  background: $accent-dim;
+  color: $accent;
+}
+
+* { @include custom-scrollbar; }

@@ -1,0 +1,177 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background: $bg-void;
+  border-right: 1px solid $border-subtle;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition:
+    width 0.25s ease,
+    transform 0.25s ease;
+  @include custom-scrollbar;
+
+  // Mobile: hidden by default
+  transform: translateX(-100%);
+
+  @include desktop {
+    transform: translateX(0);
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  &.collapsed {
+    width: $sidebar-collapsed-width;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $space-4 $space-3;
+  border-bottom: 1px solid $border-subtle;
+  min-height: $header-height;
+}
+
+.brand {
+  @include flex-start;
+  gap: $space-2;
+}
+
+.logo {
+  font-size: $text-xl;
+  color: $accent;
+}
+
+.name {
+  font-size: $text-sm;
+  font-weight: $font-bold;
+  letter-spacing: 0.1em;
+  color: $text-primary;
+}
+
+.collapseBtn {
+  @include flex-center;
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-md;
+  color: $text-muted;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $bg-hover;
+    color: $text-secondary;
+  }
+}
+
+.searchBtn {
+  @include flex-start;
+  gap: $space-2;
+  margin: $space-3 $space-3 $space-2;
+  padding: $space-2 $space-3;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  color: $text-muted;
+  font-size: $text-xs;
+  transition: $transition-fast;
+  width: calc(100% - #{$space-6});
+
+  &:hover {
+    border-color: $border-default;
+    color: $text-secondary;
+  }
+
+  kbd {
+    margin-left: auto;
+    padding: 2px 5px;
+    background: $bg-elevated;
+    border-radius: $radius-sm;
+    font-size: 10px;
+    color: $text-muted;
+  }
+}
+
+.nav {
+  flex: 1;
+  padding: $space-2 $space-2;
+  overflow-y: auto;
+  @include custom-scrollbar;
+}
+
+.section {
+  font-size: 10px;
+  font-weight: $font-semibold;
+  letter-spacing: 0.1em;
+  color: $text-muted;
+  padding: $space-4 $space-2 $space-1;
+}
+
+.navItem {
+  @include flex-start;
+  gap: $space-3;
+  padding: $space-2 $space-3;
+  border-radius: $radius-md;
+  color: $text-secondary;
+  font-size: $text-sm;
+  transition: $transition-fast;
+  margin-bottom: 2px;
+
+  &:hover {
+    background: $bg-hover;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $accent-dim;
+    color: $accent;
+  }
+}
+
+.projectDot {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+.projectName {
+  @include truncate;
+}
+
+.footer {
+  @include flex-start;
+  gap: $space-3;
+  padding: $space-4 $space-3;
+  border-top: 1px solid $border-subtle;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.userName {
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  color: $text-primary;
+  @include truncate;
+}
+
+.userEmail {
+  font-size: 10px;
+  color: $text-muted;
+  @include truncate;
+}

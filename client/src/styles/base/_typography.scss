@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $text-base;
+  color: $text-primary;
+}
+
+h1 {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  line-height: $line-tight;
+}
+h2 {
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  line-height: $line-tight;
+}
+h3 {
+  font-size: $text-xl;
+  font-weight: $font-semibold;
+  line-height: $line-tight;
+}
+h4 {
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  line-height: $line-normal;
+}
+p {
+  font-size: $text-base;
+  line-height: $line-normal;
+  color: $text-secondary;
+}

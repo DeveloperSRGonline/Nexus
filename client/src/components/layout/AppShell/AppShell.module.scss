@@ -1,0 +1,46 @@
+.shell {
+  display: flex;
+  height: 100vh;
+  background: $bg-base;
+  overflow: hidden;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  @include custom-scrollbar;
+  padding-bottom: $mobile-nav-height;
+
+  @include desktop {
+    padding-bottom: 0;
+    margin-left: $sidebar-width;
+    transition: margin-left 0.25s ease;
+  }
+}
+
+.shell.collapsed .main {
+  @include desktop {
+    margin-left: $sidebar-collapsed-width;
+  }
+}
+
+.content {
+  max-width: $content-max-width;
+  padding: $space-6 $space-4;
+
+  @include desktop {
+    padding: $space-8 $space-8;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+
+  @include desktop {
+    display: none;
+  }
+}

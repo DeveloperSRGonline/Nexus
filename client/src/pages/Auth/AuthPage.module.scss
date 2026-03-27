@@ -1,0 +1,49 @@
+.container {
+  min-height: 100vh;
+  background: $bg-void;
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.brand {
+  @include flex-center;
+  gap: $space-3;
+
+  .logo {
+    font-size: $text-3xl;
+    color: $accent;
+  }
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    letter-spacing: 0.12em;
+    color: $text-primary;
+  }
+}
+
+.form {
+  // Override Clerk's default white bg
+  :global(.cl-card) {
+    background: $bg-surface !important;
+    border: 1px solid $border-default !important;
+    box-shadow: $shadow-xl !important;
+  }
+  :global(.cl-headerTitle),
+  :global(.cl-headerSubtitle),
+  :global(.cl-formFieldLabel),
+  :global(.cl-footerActionText) {
+    color: $text-primary !important;
+  }
+  :global(.cl-formFieldInput) {
+    background: $bg-elevated !important;
+    border-color: $border-default !important;
+    color: $text-primary !important;
+  }
+  :global(.cl-formButtonPrimary) {
+    background: $accent !important;
+    color: #000 !important;
+    font-weight: $font-semibold !important;
+  }
+}
