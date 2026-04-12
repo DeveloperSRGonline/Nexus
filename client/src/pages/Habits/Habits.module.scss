@@ -1,43 +1,47 @@
 .habits-page {
-  padding: var(--space-6);
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-6);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--color-divider, #E5E7EB);
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: var(--space-3);
+      gap: 12px;
 
       .title {
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 700;
-        color: var(--color-text-primary);
+        color: var(--color-text-primary, #1F2937);
         margin: 0;
+        line-height: 1.2;
       }
     }
 
     .add-button {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       border: none;
-      background: var(--color-primary);
+      background: var(--color-primary, #3B82F6);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 
       &:hover {
-        background: var(--color-primary-hover);
+        background: var(--color-primary-hover, #2563EB);
         transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
       }
 
       &:active {
@@ -47,10 +51,11 @@
   }
 
   .week-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: var(--space-4);
-    padding: var(--space-3) 0;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--color-bg-surface, #FFFFFF);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     .habit-name-column {
       flex: 1;
@@ -59,40 +64,44 @@
     .days-row {
       display: flex;
       align-items: center;
-      gap: var(--space-2);
-      flex: 2;
+      gap: 16px;
       justify-content: space-between;
 
       .day-column {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2px;
-        padding: var(--space-2);
+        gap: 4px;
+        padding: 12px 8px;
         border-radius: 8px;
-        min-width: 40px;
+        min-width: 60px;
+        transition: all 0.2s ease;
 
         .day-name {
           font-size: 11px;
           font-weight: 600;
           text-transform: uppercase;
-          color: var(--color-text-secondary);
+          color: var(--color-text-secondary, #6B7280);
+          letter-spacing: 0.5px;
         }
 
         .day-number {
-          font-size: 16px;
-          font-weight: 600;
-          color: var(--color-text-primary);
+          font-size: 20px;
+          font-weight: 700;
+          color: var(--color-text-primary, #1F2937);
         }
 
         &.today {
-          background: var(--color-primary);
-          color: white;
+          background: var(--color-primary, #3B82F6);
 
           .day-name,
           .day-number {
             color: white;
           }
+        }
+
+        &:hover:not(.today) {
+          background: var(--color-bg-app, #F9FAFB);
         }
       }
     }
@@ -104,43 +113,49 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: var(--space-12);
+      padding: 80px 20px;
       text-align: center;
+      background: var(--color-bg-surface, #FFFFFF);
+      border-radius: 12px;
+      border: 2px dashed var(--color-divider, #E5E7EB);
 
       .empty-icon {
-        font-size: 64px;
-        margin-bottom: var(--space-4);
+        font-size: 72px;
+        margin-bottom: 16px;
       }
 
       h3 {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 600;
-        color: var(--color-text-primary);
-        margin: 0 0 var(--space-2) 0;
+        color: var(--color-text-primary, #1F2937);
+        margin: 0 0 8px 0;
       }
 
       p {
-        font-size: 14px;
-        color: var(--color-text-secondary);
-        margin: 0 0 var(--space-4) 0;
+        font-size: 15px;
+        color: var(--color-text-secondary, #6B7280);
+        margin: 0 0 24px 0;
+        line-height: 1.5;
       }
 
       .create-button {
         display: flex;
         align-items: center;
-        gap: var(--space-2);
-        padding: var(--space-3) var(--space-5);
+        gap: 8px;
+        padding: 12px 24px;
         border-radius: 8px;
         border: none;
-        background: var(--color-primary);
+        background: var(--color-primary, #3B82F6);
         color: white;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 
         &:hover {
-          background: var(--color-primary-hover);
+          background: var(--color-primary-hover, #2563EB);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
 
         &:active {
@@ -150,21 +165,22 @@
     }
 
     .section {
-      margin-bottom: var(--space-6);
+      margin-bottom: 32px;
 
       .section-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-text-secondary);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--color-text-secondary, #6B7280);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin: 0 0 var(--space-3) 0;
+        letter-spacing: 1px;
+        margin: 0 0 12px 0;
+        padding-left: 4px;
       }
 
       .section-habits {
         display: flex;
         flex-direction: column;
-        gap: var(--space-3);
+        gap: 12px;
       }
     }
   }
@@ -173,32 +189,30 @@
 // Mobile responsiveness
 @media (max-width: 768px) {
   .habits-page {
-    padding: var(--space-4);
-
     .header {
       .title {
-        font-size: 24px;
+        font-size: 28px;
       }
     }
 
     .week-header {
       overflow-x: auto;
-      padding: var(--space-2) 0;
+      padding: 12px;
 
       .days-row {
-        gap: var(--space-1);
+        gap: 8px;
         min-width: max-content;
 
         .day-column {
-          min-width: 36px;
-          padding: var(--space-1);
+          min-width: 50px;
+          padding: 8px;
 
           .day-name {
             font-size: 10px;
           }
 
           .day-number {
-            font-size: 14px;
+            font-size: 18px;
           }
         }
       }
@@ -206,18 +220,18 @@
 
     .habits-list {
       .empty-state {
-        padding: var(--space-8);
+        padding: 60px 16px;
 
         .empty-icon {
-          font-size: 48px;
+          font-size: 56px;
         }
 
         h3 {
-          font-size: 18px;
+          font-size: 20px;
         }
 
         p {
-          font-size: 13px;
+          font-size: 14px;
         }
       }
     }
