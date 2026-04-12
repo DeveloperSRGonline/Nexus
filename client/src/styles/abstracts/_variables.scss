@@ -1,116 +1,253 @@
-// ─── BACKGROUNDS ─────────────────────────────────────────────
-$bg-void:       #0a0a0a;
-$bg-base:       #111111;
-$bg-surface:    #1a1a1a;
-$bg-elevated:   #222222;
-$bg-hover:      #2a2a2a;
-$bg-active:     #333333;
+// ═══════════════════════════════════════════════════════════
+// NEXUS v2.0 DESIGN TOKEN SYSTEM
+// PRD Section 5: Design System
+// Font Family: Inter (all text)
+// ═══════════════════════════════════════════════════════════
 
+// ─── 5.1 COLOR TOKENS ──────────────────────────────────────
+:root {
+  // Primary & Brand
+  --color-primary: #3B5BDB;
+  --color-primary-hover: #4A6CF7;
+  
+  // Backgrounds
+  --color-bg-app: #F2F2F7;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-active-row: #EEF2FF;
+  
+  // Text
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #8E8E93;
+  --color-text-link: #3B5BDB;
+  --color-text-done: #C7C7CC;
+  
+  // Priority Levels (P1-P4)
+  --color-priority-p1: #FF3B30;
+  --color-priority-p2: #FF9F0A;
+  --color-priority-p3: #3B5BDB;
+  --color-priority-p4: #C7C7CC;
+  
+  // Special
+  --color-premium: #FF9500;
+  --color-habit-done: #30D158;
+  --color-habit-check: #3B5BDB;
+  
+  // UI Elements
+  --color-divider: #E5E5EA;
+  --color-danger: #FF3B30;
+  --color-callout-bg: #EEF2FF;
+  --color-callout-border: #3B5BDB;
+}
 
-// ─── BORDERS ─────────────────────────────────────────────────
-$border-subtle:  rgba(255,255,255,0.06);
-$border-default: rgba(255,255,255,0.10);
-$border-strong:  rgba(255,255,255,0.18);
+// Legacy SCSS variables (mapped to CSS custom properties for backward compatibility)
+$color-primary: var(--color-primary);
+$color-primary-hover: var(--color-primary-hover);
+$color-bg-app: var(--color-bg-app);
+$color-bg-surface: var(--color-bg-surface);
+$color-bg-active-row: var(--color-bg-active-row);
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-link: var(--color-text-link);
+$color-text-done: var(--color-text-done);
+$color-priority-p1: var(--color-priority-p1);
+$color-priority-p2: var(--color-priority-p2);
+$color-priority-p3: var(--color-priority-p3);
+$color-priority-p4: var(--color-priority-p4);
+$color-premium: var(--color-premium);
+$color-habit-done: var(--color-habit-done);
+$color-habit-check: var(--color-habit-check);
+$color-divider: var(--color-divider);
+$color-danger: var(--color-danger);
+$color-callout-bg: var(--color-callout-bg);
+$color-callout-border: var(--color-callout-border);
 
+// ─── 5.2 TYPOGRAPHY SCALE ──────────────────────────────────
+:root {
+  // Font Families
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Inter', 'SF Mono', 'Fira Code', monospace;
 
-// ─── TEXT ─────────────────────────────────────────────────────
-$text-primary:   #f0f0f0;
-$text-secondary: #999999;
-$text-muted:     #555555;
-$text-disabled:  #3a3a3a;
+  // Font Weights
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
 
+  // Display & Headings
+  --text-display: 700 32px/40px var(--font-sans);
+  --text-heading-1: 600 20px/28px var(--font-sans);
+  --text-heading-2: 600 16px/24px var(--font-sans);
+  --text-heading-3: 600 18px/26px var(--font-sans);
 
-// ─── ACCENT ──────────────────────────────────────────────────
-$accent:        #a3e635;
-$accent-dim:    rgba(163, 230, 53, 0.12);
-$accent-hover:  #bef264;
+  // Body Text
+  --text-body-lg: 400 14px/22px var(--font-sans);
+  --text-body-md: 400 13px/20px var(--font-sans);
+  --text-body: 400 14px/20px var(--font-sans);
+  --text-body-sm: 400 13px/18px var(--font-sans);
+  --text-xs: 12px/16px var(--font-sans);
 
+  // Meta & Labels
+  --text-meta: 400 12px/18px var(--font-sans);
+  --text-label: 500 11px/16px var(--font-sans);
 
-// ─── STATUS ──────────────────────────────────────────────────
-$color-todo:       #555555;
-$color-inprogress: #3b82f6;
-$color-review:     #f59e0b;
-$color-done:       #22c55e;
-$color-cancelled:  #ef4444;
+  // Timer Display (monospace with tabular-nums)
+  --text-mono: 300 32px/40px var(--font-mono);
+}
 
+// Legacy SCSS typography variables (backward compatibility)
+$font-sans: var(--font-sans);
+$font-mono: var(--font-mono);
+$text-display: var(--text-display);
+$text-heading-1: var(--text-heading-1);
+$text-heading-2: var(--text-heading-2);
+$text-body-lg: var(--text-body-lg);
+$text-body-md: var(--text-body-md);
+$text-meta: var(--text-meta);
+$text-label: var(--text-label);
+$text-mono: var(--text-mono);
 
-// ─── PRIORITY ────────────────────────────────────────────────
-$priority-low:    #6b7280;
-$priority-medium: #3b82f6;
-$priority-high:   #f59e0b;
-$priority-urgent: #ef4444;
+// ─── 5.3 SPACING SCALE ─────────────────────────────────────
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+}
 
+// Legacy SCSS spacing variables (backward compatibility)
+$space-1: var(--space-1);
+$space-2: var(--space-2);
+$space-3: var(--space-3);
+$space-4: var(--space-4);
+$space-5: var(--space-5);
+$space-6: var(--space-6);
+$space-8: var(--space-8);
+$space-10: var(--space-10);
+$space-12: var(--space-12);
 
-// ─── PROJECT COLORS ──────────────────────────────────────────
-$project-colors: (
-  "lime":    #a3e635,
-  "blue":    #3b82f6,
-  "violet":  #8b5cf6,
-  "rose":    #f43f5e,
-  "amber":   #f59e0b,
-  "cyan":    #06b6d4,
-  "emerald": #10b981,
-  "orange":  #f97316,
-  "pink":    #ec4899,
-  "slate":   #64748b,
-);
+// ─── 5.4 BORDER RADIUS RULES ───────────────────────────────
+:root {
+  --radius-task-card: 8px;
+  --radius-habit-card: 10px;
+  --radius-modal: 14px;
+  --radius-dropdown: 10px;
+  --radius-input: 6px;
+  --radius-button: 8px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+  --radius-tag: 4px;
+  --radius-sidebar-item: 8px;
+  --radius-calendar-day: 50%;
+}
 
-// ─── TYPOGRAPHY ──────────────────────────────────────────────
-$font-sans:  'Geist', 'DM Sans', sans-serif;
-$font-mono:  'Geist Mono', 'Fira Code', monospace;
+// Legacy SCSS radius variables (backward compatibility)
+$radius-sm: var(--radius-tag);
+$radius-md: var(--radius-task-card);
+$radius-lg: var(--radius-habit-card);
+$radius-xl: var(--radius-modal);
+$radius-2xl: var(--radius-dropdown);
+$radius-full: var(--radius-circle);
 
-$text-xs:   0.75rem;
-$text-sm:   0.875rem;
-$text-base: 1rem;
-$text-lg:   1.125rem;
-$text-xl:   1.25rem;
-$text-2xl:  1.5rem;
-$text-3xl:  1.875rem;
-$text-4xl:  2.25rem;
+// ─── 5.5 SHADOW SCALE ──────────────────────────────────────
+:root {
+  --shadow-resting: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-modal: 0 20px 60px rgba(0,0,0,0.18);
+  --shadow-dropdown: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-FAB: 0 4px 16px rgba(59,91,219,0.35);
+}
 
-$font-normal:   400;
-$font-medium:   500;
+// Legacy SCSS shadow variables (backward compatibility)
+$shadow-sm: var(--shadow-resting);
+$shadow-md: var(--shadow-hover);
+$shadow-lg: var(--shadow-dropdown);
+$shadow-xl: var(--shadow-modal);
+
+// ─── BACKWARD COMPATIBILITY (v1 → v2 migration) ────────────
+// These map old v1 dark theme variables to new v2 light theme tokens
+// Remove these after all components are migrated to v2 design system
+
+// Backgrounds (v1 dark theme → v2 light theme)
+$bg-void: var(--color-bg-app);
+$bg-base: var(--color-bg-app);
+$bg-surface: var(--color-bg-surface);
+$bg-elevated: var(--color-bg-surface);
+$bg-hover: var(--color-bg-active-row);
+$bg-active: var(--color-bg-active-row);
+
+// Borders
+$border-subtle: var(--color-divider);
+$border-default: var(--color-divider);
+$border-strong: var(--color-text-secondary);
+
+// Text (v1 → v2)
+$text-primary: var(--color-text-primary);
+$text-secondary: var(--color-text-secondary);
+$text-muted: var(--color-text-done);
+$text-disabled: var(--color-text-done);
+
+// Accent (v1 lime green → v2 blue)
+$accent: var(--color-primary);
+$accent-dim: var(--color-bg-active-row);
+$accent-hover: var(--color-primary-hover);
+
+// Status colors (v1 → v2 priority colors)
+$color-todo: var(--color-priority-p4);
+$color-inprogress: var(--color-priority-p3);
+$color-review: var(--color-priority-p2);
+$color-done: var(--color-habit-done);
+$color-cancelled: var(--color-danger);
+
+// Priority colors (v1 → v2 4-level system)
+$priority-low: var(--color-priority-p4);
+$priority-medium: var(--color-priority-p3);
+$priority-high: var(--color-priority-p2);
+$priority-urgent: var(--color-priority-p1);
+
+// Typography sizes (v1 rem-based → v2 px-based, keep for now)
+$text-xs: 0.75rem;    // 12px
+$text-sm: 0.875rem;   // 14px
+$text-base: 1rem;     // 16px
+$text-lg: 1.125rem;   // 18px
+$text-xl: 1.25rem;    // 20px
+$text-2xl: 1.5rem;    // 24px
+$text-3xl: 1.875rem;  // 30px
+$text-4xl: 2.25rem;   // 36px
+
+// Font weights
+$font-normal: 400;
+$font-medium: 500;
 $font-semibold: 600;
-$font-bold:     700;
+$font-bold: 700;
 
-$line-tight:   1.2;
-$line-normal:  1.5;
+// Line heights
+$line-tight: 1.2;
+$line-normal: 1.5;
 $line-relaxed: 1.75;
 
-// ─── SPACING ─────────────────────────────────────────────────
-$space-1:  0.25rem;
-$space-2:  0.5rem;
-$space-3:  0.75rem;
-$space-4:  1rem;
-$space-5:  1.25rem;
-$space-6:  1.5rem;
-$space-8:  2rem;
-$space-10: 2.5rem;
-$space-12: 3rem;
-$space-16: 4rem;
+// Extra spacing (v1 had more values)
+$space-16: 4rem; // 64px
 
-// ─── RADIUS ──────────────────────────────────────────────────
-$radius-sm:   4px;
-$radius-md:   8px;
-$radius-lg:   12px;
-$radius-xl:   16px;
-$radius-2xl:  20px;
-$radius-full: 9999px;
+// Extra radius values
+$radius-sm: 4px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
 
-// ─── SHADOWS ─────────────────────────────────────────────────
-$shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
-$shadow-md:  0 4px 12px rgba(0,0,0,0.5);
-$shadow-lg:  0 8px 24px rgba(0,0,0,0.6);
-$shadow-xl:  0 16px 40px rgba(0,0,0,0.7);
+// ─── LAYOUT ─────────────────────────────────────────────────
+$sidebar-width: 220px; // Updated to match PRD spec
+$sidebar-collapsed-width: 60px;
+$header-height: 56px;
+$content-max-width: 1400px;
+$mobile-nav-height: 60px;
 
 // ─── TRANSITIONS ─────────────────────────────────────────────
-$transition-fast:   all 0.12s ease;
+$transition-fast: all 0.12s ease;
 $transition-normal: all 0.2s ease;
-$transition-slow:   all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-// ─── LAYOUT ──────────────────────────────────────────────────
-$sidebar-width:           260px;
-$sidebar-collapsed-width: 60px;
-$header-height:           56px;
-$content-max-width:       1400px;
-$mobile-nav-height:       60px;
+$transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);

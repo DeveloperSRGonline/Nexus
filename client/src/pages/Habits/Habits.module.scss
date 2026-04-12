@@ -6,18 +6,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
+    margin-bottom: var(--space-8, 32px);
+    padding-bottom: var(--space-4, 16px);
     border-bottom: 2px solid var(--color-divider, #E5E7EB);
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--space-3, 12px);
 
       .title {
-        font-size: 32px;
-        font-weight: 700;
+        font-size: var(--text-heading-1, 32px);
+        font-weight: var(--font-bold, 700);
         color: var(--color-text-primary, #1F2937);
         margin: 0;
         line-height: 1.2;
@@ -51,11 +51,11 @@
   }
 
   .week-header {
-    margin-bottom: 24px;
-    padding: 16px;
+    margin-bottom: var(--space-6, 24px);
+    padding: var(--space-4, 16px);
     background: var(--color-bg-surface, #FFFFFF);
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-task-card, 12px);
+    box-shadow: var(--shadow-resting, 0 1px 3px rgba(0, 0, 0, 0.1));
 
     .habit-name-column {
       flex: 1;
@@ -64,7 +64,7 @@
     .days-row {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: var(--space-4, 16px);
       justify-content: space-between;
 
       .day-column {
@@ -72,22 +72,22 @@
         flex-direction: column;
         align-items: center;
         gap: 4px;
-        padding: 12px 8px;
-        border-radius: 8px;
+        padding: var(--space-3, 12px) var(--space-2, 8px);
+        border-radius: var(--radius-md, 8px);
         min-width: 60px;
         transition: all 0.2s ease;
 
         .day-name {
-          font-size: 11px;
-          font-weight: 600;
+          font-size: var(--text-xs, 11px);
+          font-weight: var(--font-semibold, 600);
           text-transform: uppercase;
           color: var(--color-text-secondary, #6B7280);
           letter-spacing: 0.5px;
         }
 
         .day-number {
-          font-size: 20px;
-          font-weight: 700;
+          font-size: var(--text-heading-2, 20px);
+          font-weight: var(--font-bold, 700);
           color: var(--color-text-primary, #1F2937);
         }
 
@@ -113,42 +113,42 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 80px 20px;
+      padding: var(--space-12, 80px) var(--space-5, 20px);
       text-align: center;
       background: var(--color-bg-surface, #FFFFFF);
-      border-radius: 12px;
+      border-radius: var(--radius-task-card, 12px);
       border: 2px dashed var(--color-divider, #E5E7EB);
 
       .empty-icon {
         font-size: 72px;
-        margin-bottom: 16px;
+        margin-bottom: var(--space-4, 16px);
       }
 
       h3 {
-        font-size: 22px;
-        font-weight: 600;
+        font-size: var(--text-heading-3, 22px);
+        font-weight: var(--font-semibold, 600);
         color: var(--color-text-primary, #1F2937);
-        margin: 0 0 8px 0;
+        margin: 0 0 var(--space-2, 8px) 0;
       }
 
       p {
-        font-size: 15px;
+        font-size: var(--text-body, 15px);
         color: var(--color-text-secondary, #6B7280);
-        margin: 0 0 24px 0;
+        margin: 0 0 var(--space-6, 24px) 0;
         line-height: 1.5;
       }
 
       .create-button {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 12px 24px;
-        border-radius: 8px;
+        gap: var(--space-2, 8px);
+        padding: var(--space-3, 12px) var(--space-6, 24px);
+        border-radius: var(--radius-md, 8px);
         border: none;
         background: var(--color-primary, #3B82F6);
         color: white;
-        font-size: 15px;
-        font-weight: 600;
+        font-size: var(--text-body, 15px);
+        font-weight: var(--font-semibold, 600);
         cursor: pointer;
         transition: all 0.2s ease;
         box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
@@ -165,22 +165,22 @@
     }
 
     .section {
-      margin-bottom: 32px;
+      margin-bottom: var(--space-8, 32px);
 
       .section-title {
-        font-size: 13px;
-        font-weight: 700;
+        font-size: var(--text-xs, 13px);
+        font-weight: var(--font-bold, 700);
         color: var(--color-text-secondary, #6B7280);
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin: 0 0 12px 0;
+        margin: 0 0 var(--space-3, 12px) 0;
         padding-left: 4px;
       }
 
       .section-habits {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: var(--space-3, 12px);
       }
     }
   }
@@ -191,28 +191,28 @@
   .habits-page {
     .header {
       .title {
-        font-size: 28px;
+        font-size: var(--text-heading-1, 28px);
       }
     }
 
     .week-header {
       overflow-x: auto;
-      padding: 12px;
+      padding: var(--space-3, 12px);
 
       .days-row {
-        gap: 8px;
+        gap: var(--space-2, 8px);
         min-width: max-content;
 
         .day-column {
           min-width: 50px;
-          padding: 8px;
+          padding: var(--space-2, 8px);
 
           .day-name {
             font-size: 10px;
           }
 
           .day-number {
-            font-size: 18px;
+            font-size: var(--text-heading-3, 18px);
           }
         }
       }
@@ -220,18 +220,18 @@
 
     .habits-list {
       .empty-state {
-        padding: 60px 16px;
+        padding: var(--space-10, 60px) var(--space-4, 16px);
 
         .empty-icon {
           font-size: 56px;
         }
 
         h3 {
-          font-size: 20px;
+          font-size: var(--text-heading-3, 20px);
         }
 
         p {
-          font-size: 14px;
+          font-size: var(--text-body-sm, 14px);
         }
       }
     }
