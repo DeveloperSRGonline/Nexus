@@ -1,0 +1,148 @@
+.today-page {
+  padding: var(--space-6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    margin-bottom: var(--space-4);
+
+    h1 {
+      font-size: var(--text-heading-1);
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin: 0;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: var(--text-body);
+    color: var(--color-text-secondary);
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+.today-column {
+  &--habits {
+    .today-column__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-3);
+    }
+
+    .today-column__habits {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .today-column__empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      color: var(--color-text-secondary);
+      font-size: var(--text-body-sm);
+    }
+  }
+}
+
+// Habit card in Today view
+.habit-card-today {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-bg-surface);
+  border-radius: 8px;
+  box-shadow: var(--shadow-resting);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--color-habit-check);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      color: white;
+    }
+
+    &:has(svg) {
+      background: var(--color-habit-check);
+      border-color: var(--color-habit-check);
+    }
+  }
+
+  &__emoji {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .today-page {
+    padding: var(--space-4);
+
+    &__columns {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    // Stack order: Today first, Overdue second, Habits third
+    .today-page__columns {
+      display: flex;
+      flex-direction: column;
+
+      > *:nth-child(2) {
+        order: -1; // Today column first
+      }
+    }
+  }
+}
+
+// Tablet
+@media (min-width: 768px) and (max-width: 1024px) {
+  .today-page {
+    &__columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .today-column--habits {
+      grid-column: span 2;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+.habit-log-section {
+  background: var(--color-bg-surface);
+  border-radius: 10px;
+  padding: var(--space-4);
+  box-shadow: var(--shadow-resting);
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4) 0;
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .empty-state {
+    padding: var(--space-6);
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+  }
+
+  .logs-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+
+    .log-entry {
+      padding: var(--space-3);
+      background: var(--color-bg-app);
+      border-radius: 8px;
+
+      .log-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--space-2);
+
+        .log-date {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--color-text-primary);
+        }
+
+        .edit-button {
+          width: 28px;
+          height: 28px;
+          border: none;
+          background: transparent;
+          color: var(--color-text-secondary);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--color-bg-surface);
+            color: var(--color-primary);
+          }
+        }
+      }
+
+      .edit-mode {
+        .note-textarea {
+          width: 100%;
+          padding: var(--space-3);
+          border: 1px solid var(--color-divider);
+          border-radius: 6px;
+          font-size: 14px;
+          font-family: inherit;
+          resize: vertical;
+          background: var(--color-bg-surface);
+          transition: all 0.2s ease;
+
+          &:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.1);
+          }
+        }
+
+        .edit-actions {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: var(--space-2);
+          margin-top: var(--space-2);
+
+          .cancel-edit-button,
+          .save-note-button {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-2) var(--space-3);
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          }
+
+          .cancel-edit-button {
+            background: transparent;
+            color: var(--color-text-secondary);
+
+            &:hover {
+              background: var(--color-divider);
+            }
+          }
+
+          .save-note-button {
+            background: var(--color-primary);
+            color: white;
+
+            &:hover {
+              background: var(--color-primary-hover);
+            }
+          }
+        }
+      }
+
+      .log-content {
+        .log-note {
+          font-size: 14px;
+          color: var(--color-text-primary);
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .log-note-placeholder {
+          font-size: 13px;
+          color: var(--color-text-secondary);
+          font-style: italic;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

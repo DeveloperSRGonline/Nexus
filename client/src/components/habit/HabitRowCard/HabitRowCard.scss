@@ -1,0 +1,177 @@
+.habit-row-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow-resting);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  .habit-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+
+    .habit-emoji {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg-app);
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .habit-details {
+      flex: 1;
+
+      .habit-name {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+      }
+
+      .habit-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        margin-top: 2px;
+
+        .streak-badge,
+        .count-badge {
+          font-size: 12px;
+          padding: 2px 6px;
+          border-radius: 4px;
+          background: var(--color-bg-app);
+          color: var(--color-text-secondary);
+        }
+
+        .streak-badge {
+          background: #FFF3E0;
+          color: #FF9500;
+        }
+      }
+    }
+  }
+
+  .habit-checkins {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    .checkin-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      .checkin-circle {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 2px solid var(--color-divider);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-bg-surface);
+        transition: all 0.2s ease;
+
+        svg {
+          width: 14px;
+          height: 14px;
+          color: white;
+        }
+      }
+
+      .day-label {
+        font-size: 10px;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+      }
+
+      // Completed state
+      &.completed {
+        .checkin-circle {
+          background: var(--color-habit-check);
+          border-color: var(--color-habit-check);
+        }
+      }
+
+      // Today highlight
+      &.today {
+        .checkin-circle {
+          border-color: var(--color-primary);
+          border-width: 2px;
+        }
+
+        .day-label {
+          color: var(--color-primary);
+          font-weight: 700;
+        }
+      }
+
+      // Not scheduled (striped effect)
+      &.not-scheduled {
+        opacity: 0.4;
+        cursor: default;
+
+        .checkin-circle {
+          background: repeating-linear-gradient(
+            45deg,
+            var(--color-bg-app),
+            var(--color-bg-app) 2px,
+            transparent 2px,
+            transparent 4px
+          );
+        }
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .habit-row-card {
+    padding: var(--space-2) var(--space-3);
+
+    .habit-checkins {
+      gap: var(--space-1);
+
+      .checkin-day {
+        .checkin-circle {
+          width: 20px;
+          height: 20px;
+
+          svg {
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        .day-label {
+          font-size: 9px;
+        }
+      }
+    }
+  }
+}
