@@ -1,0 +1,31 @@
+.timerRing {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+.svg {
+  transform: rotate(0deg);
+}
+
+.progressRing {
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.timeDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+  span {
+    font: var(--text-mono);
+    color: var(--color-text-primary);
+    font-weight: 300;
+  }
+}

@@ -510,7 +510,7 @@
 **Goal**: Complete focus session manager with named timers, SVG ring animation, task linking, and statistics
 
 ### Phase 4.1: Pomodoro Timer Core
-- [ ] 4.1.1: Create Focus page layout
+- [x] 4.1.1: Create Focus page layout
   - File: `client/src/pages/Focus/Focus.jsx`
   - Header: "Pomodoro" with Pomo/Stopwatch tab switcher
   - "+" icon to add named timer
@@ -519,7 +519,7 @@
   - Right: overview panel (stats + focus records)
   - Mobile: overview panel collapses to accordion below timer
 
-- [ ] 4.1.2: Create TimerRing component (SVG circular progress)
+- [x] 4.1.2: Create TimerRing component (SVG circular progress)
   - 280×280px SVG circle
   - Background ring: stroke #E5E5EA, stroke-width 8
   - Progress ring: stroke #3B5BDB, stroke-width 8, stroke-linecap round
@@ -528,19 +528,19 @@
   - Below ring: linked task name (13px, secondary color)
   - File: `client/src/components/focus/TimerRing/TimerRing.jsx`
 
-- [ ] 4.1.3: Implement timer countdown logic
+- [x] 4.1.3: Implement timer countdown logic
   - Zustand focus store: `{ state: "idle/running/paused/stopped", timerId, taskId, startedAt, remainingMs }`
   - Use `setInterval` with `Date.now()` delta for drift compensation
   - Update every 100ms for smooth ring animation
   - File: `client/src/store/focusStore.js`
 
-- [ ] 4.1.4: Create timer controls
+- [x] 4.1.4: Create timer controls
   - Start/Pause/Stop pill buttons (blue, 160px wide, rounded)
   - Start: begins countdown, sets state to "running"
   - Pause: pauses countdown, sets state to "paused"
   - Stop: resets to initial time, sets state to "stopped"
 
-- [ ] 4.1.5: Implement timer accuracy strategy
+- [x] 4.1.5: Implement timer accuracy strategy
   - Store `startedAt` (Date.now()) and `totalDurationMs`
   - On each tick: `remainingMs = totalDurationMs - (Date.now() - startedAt)`
   - Compensates for setInterval drift and app minimize/screen lock
@@ -561,13 +561,13 @@
   - "+" icon opens AddTimerModal
   - File: `client/src/components/focus/TimerTabSwitcher/TimerTabSwitcher.jsx`
 
-- [ ] 4.2.3: Create backend Timer API endpoints
+- [x] 4.2.3: Create backend Timer API endpoints
   - `GET /api/timers` - get all named timers for user
   - `POST /api/timers` - create named timer
   - `PATCH /api/timers/:id` - update timer name, emoji, duration
   - `DELETE /api/timers/:id` - delete timer (preserve orphaned focusRecords)
 
-- [ ] 4.2.4: Create Timer controllers and routes (backend)
+- [x] 4.2.4: Create Timer controllers and routes (backend)
   - File: `server/src/controllers/timerController.js`
   - File: `server/src/routes/timerRoutes.js`
 
@@ -613,17 +613,17 @@
   - "No focus record yet" empty state with illustration
   - File: `client/src/components/focus/FocusRecordList/FocusRecordList.jsx`
 
-- [ ] 4.5.3: Create backend FocusRecord API endpoints
+- [x] 4.5.3: Create backend FocusRecord API endpoints
   - `GET /api/focus-records/overview` - returns today count, today duration, total count, total duration
   - `GET /api/focus-records` - returns paginated records sorted by completedAt desc
   - `POST /api/focus-records` - create completed focus session (auto or manual)
   - `DELETE /api/focus-records/:id` - remove manually added record
 
-- [ ] 4.5.4: Create FocusRecord controllers and routes (backend)
+- [x] 4.5.4: Create FocusRecord controllers and routes (backend)
   - File: `server/src/controllers/focusRecordController.js`
   - File: `server/src/routes/focusRecordRoutes.js`
 
-- [ ] 4.5.5: Save focusRecord on timer completion
+- [x] 4.5.5: Save focusRecord on timer completion
   - When countdown reaches 00:00:
     - Fire OS notification
     - Call backend: `POST /api/focus-records` with { timerId, linkedTaskId, duration, completedAt }
@@ -925,6 +925,49 @@
   - Use `node-notifier` for cross-platform notifications
   - Habit reminders fire even when app is minimized
 
+### Phase 6.9: Dark/Light Mode Theme (Separate Enhancement)
+- [ ] 6.9.1: Create dark theme design tokens
+  - File: `client/src/styles/abstracts/_variables-dark.scss`
+  - Map all existing light theme CSS custom properties to dark equivalents
+  - Colors: dark backgrounds, light text, adjusted borders/shadows
+  - Ensure WCAG 2.1 AA contrast ratios for dark mode
+
+- [ ] 6.9.2: Create theme context provider
+  - File: `client/src/context/ThemeContext.jsx`
+  - Manage theme state (light/dark/system)
+  - Persist theme selection in localStorage
+  - Apply theme class to root HTML element
+
+- [ ] 6.9.3: Create theme toggle component
+  - Sun/Moon icon switch
+  - Dropdown with options: Light, Dark, System
+  - File: `client/src/components/ui/ThemeToggle/ThemeToggle.jsx`
+  - Place in Settings page and/or header
+
+- [ ] 6.9.4: Update UserSettings model and API
+  - Backend: Ensure `theme` field in UserSettings supports "light"/"dark"/"system"
+  - Backend: `GET /api/settings` - returns user theme preference
+  - Backend: `PATCH /api/settings` - update theme preference
+
+- [ ] 6.9.5: Integrate theme with frontend
+  - Fetch user theme preference on app load
+  - Apply theme before rendering to prevent flash
+  - Sync theme context with userSettings API
+  - Respect system preference if "system" selected
+
+- [ ] 6.9.6: Update all components to use theme tokens
+  - Verify all colors use CSS custom properties (no hardcoded values)
+  - Test dark mode on all pages: Inbox, Today, Habits, Focus, etc.
+  - Test dark mode on all modals, dropdowns, tooltips
+  - Fix any remaining hardcoded colors
+
+- [ ] 6.9.7: Test dark mode accessibility
+  - Verify contrast ratios meet WCAG 2.1 AA in dark mode
+  - Test with screen readers
+  - Ensure focus states visible in dark mode
+
+**Phase 6.9 Deliverable**: Complete dark/light mode theme system with toggle, persistent preferences, full component coverage, and accessibility compliance. User can switch between light, dark, and system theme.
+
 **Phase 6 Deliverable**: Fully responsive, accessible, performant app ready for production use. Keyboard navigation, error handling, offline support, onboarding flow, and polished UX. Optional Electron packaging for desktop distribution.
 
 ---
@@ -939,7 +982,7 @@
 | **3** | Habits | Habit tracker, 7-day view, detail panel, calendar heatmap, stats | 2 weeks |
 | **4** | Focus | Pomodoro + Stopwatch, named timers, SVG ring, task linking, stats | 2 weeks |
 | **5** | AI & Search | Global search (Cmd+K), AI task parser, templates | 1.5 weeks |
-| **6** | Polish & Ship | Responsive, accessibility, performance, error handling, onboarding | 1.5 weeks |
+| **6** | Polish & Ship | Responsive, accessibility, performance, error handling, onboarding, **dark/light theme** | 2 weeks |
 
 **Total Estimated Timeline**: 12 weeks for solo developer at full-time pace  
 **Add 40% buffer**: ~17 weeks total for debugging, edge cases, and refinement
