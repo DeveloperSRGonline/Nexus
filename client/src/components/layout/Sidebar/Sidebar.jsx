@@ -1,34 +1,36 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import {
-  LayoutDashboard,
-  CheckSquare,
-  FolderKanban,
   Calendar,
   Inbox,
+  CalendarDays,
+  Target,
+  Timer,
   Settings,
   ChevronLeft,
   ChevronRight,
   Menu,
   Plus,
   Search,
+  Tag,
+  ListTodo,
+  CheckCircle,
+  Trash2,
 } from "lucide-react";
 import { useUser } from "@clerk/clerk-react";
 import useUIStore from "@/store/uiStore";
-import useProjectStore from "@/store/projectStore";
 import styles from "./Sidebar.module.scss";
 
 const NAV_ITEMS = [
-  { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { to: "/tasks", icon: CheckSquare, label: "Tasks" },
-  { to: "/events", icon: Calendar, label: "Events" },
-  { to: "/queue", icon: Inbox, label: "Queue" },
-  { to: "/settings", icon: Settings, label: "Settings" },
+  { to: "/inbox", icon: Inbox, label: "Inbox" },
+  { to: "/today", icon: Calendar, label: "Today" },
+  { to: "/next-7-days", icon: CalendarDays, label: "Next 7 Days" },
+  { to: "/completed", icon: CheckCircle, label: "Completed" },
+  { to: "/trash", icon: Trash2, label: "Trash" },
 ];
 
 const Sidebar = () => {
   const { sidebarCollapsed, sidebarOpen, toggleSidebar, openSearch } =
     useUIStore();
-  const { projects } = useProjectStore();
   const { user } = useUser();
 
   return (
@@ -77,29 +79,37 @@ const Sidebar = () => {
           </NavLink>
         ))}
 
-        {/* Projects */}
-        {!sidebarCollapsed && <p className={styles.section}>PROJECTS</p>}
-        <NavLink to="/projects" className={styles.navItem}>
-          <Plus size={18} />
-          {!sidebarCollapsed && <span>New Project</span>}
+        {/* Lists Section */}
+        {!sidebarCollapsed && <p className={styles.section}>LISTS</p>}
+        <NavLink to="/lists" className={styles.navItem}>
+          <ListTodo size={18} />
+          {!sidebarCollapsed && <span>All Lists</span>}
         </NavLink>
-        {projects.map((project) => (
-          <NavLink
-            key={project._id}
-            to={`/projects/${project._id}`}
-            className={({ isActive }) =>
-              `${styles.navItem} ${isActive ? styles.active : ""}`
-            }
-          >
-            <span
-              className={styles.projectDot}
-              style={{ background: project.color }}
-            />
-            {!sidebarCollapsed && (
-              <span className={styles.projectName}>{project.name}</span>
-            )}
-          </NavLink>
-        ))}
+
+        {/* Tags Section */}
+        {!sidebarCollapsed && <p className={styles.section}>TAGS</p>}
+        <NavLink to="/tags" className={styles.navItem}>
+          <Tag size={18} />
+          {!sidebarCollapsed && <span>All Tags</span>}
+        </NavLink>
+
+        {/* Modules */}
+        {!sidebarCollapsed && <p className={styles.section}>MODULES</p>}
+        <NavLink to="/habits" className={styles.navItem}>
+          <Target size={18} />
+          {!sidebarCollapsed && <span>Habits</span>}
+        </NavLink>
+        <NavLink to="/focus" className={styles.navItem}>
+          <Timer size={18} />
+          {!sidebarCollapsed && <span>Focus / Pomodoro</span>}
+        </NavLink>
+
+        {/* Settings */}
+        {!sidebarCollapsed && <p className={styles.section}>PREFERENCES</p>}
+        <NavLink to="/settings" className={styles.navItem}>
+          <Settings size={18} />
+          {!sidebarCollapsed && <span>Settings</span>}
+        </NavLink>
       </nav>
 
       {/* Footer */}

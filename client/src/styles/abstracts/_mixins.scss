@@ -1,49 +1,52 @@
 @use "variables" as *;
 @use "breakpoints" as *;
 
+// ─── LAYOUT ─────────────────────────────────────────────────
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 @mixin flex-between {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 @mixin flex-start {
   display: flex;
   align-items: center;
 }
 
+// ─── RESPONSIVE ─────────────────────────────────────────────
 @mixin mobile {
   @media (max-width: 768px) {
     @content;
   }
 }
+
 @mixin tablet {
   @media (max-width: 1024px) {
     @content;
   }
 }
+
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;
   }
 }
 
+// ─── TYPOGRAPHY ─────────────────────────────────────────────
 @mixin heading($size) {
-  font-size: $size;
-  font-weight: $font-bold;
-  line-height: $line-tight;
-  color: $text-primary;
+  font: var(--text-heading-1);
+  @content;
 }
 
 @mixin body-text {
-  font-size: $text-sm;
-  font-weight: $font-normal;
-  line-height: $line-normal;
-  color: $text-secondary;
+  font: var(--text-body-md);
+  color: var(--color-text-secondary);
 }
 
 @mixin truncate {
@@ -52,24 +55,109 @@
   white-space: nowrap;
 }
 
+// ─── COMPONENTS ─────────────────────────────────────────────
 @mixin card-base {
-  background: $bg-surface;
-  border: 1px solid $border-subtle;
-  border-radius: $radius-lg;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-task-card);
+  box-shadow: var(--shadow-resting);
   transition: $transition-normal;
+  
   &:hover {
-    border-color: $border-default;
+    box-shadow: var(--shadow-hover);
   }
 }
 
 @mixin custom-scrollbar {
-  &::-webkit-scrollbar       { width: 3px; height: 4px; }
+  &::-webkit-scrollbar       { width: 6px; height: 6px; }
   &::-webkit-scrollbar-track { background: transparent; }
-  &::-webkit-scrollbar-thumb { background: $bg-active; border-radius: $radius-full; }
+  &::-webkit-scrollbar-thumb { 
+    background: var(--color-divider); 
+    border-radius: var(--radius-pill);
+    &:hover {
+      background: var(--color-text-secondary);
+    }
+  }
 }
-
 
 @mixin focus-ring {
   outline: none;
-  &:focus-visible { box-shadow: 0 0 0 2px $accent; }
+  &:focus-visible { 
+    box-shadow: 0 0 0 2px var(--color-primary); 
+  }
+}
+
+// ─── BUTTON VARIANTS ────────────────────────────────────────
+@mixin button-primary {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font: var(--text-body-lg);
+  font-weight: 500;
+  border-radius: var(--radius-button);
+  padding: var(--space-2) var(--space-5);
+  transition: $transition-fast;
+  
+  &:hover {
+    background: var(--color-primary-hover);
+  }
+  
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  font: var(--text-body-lg);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-button);
+  padding: var(--space-2) var(--space-5);
+  transition: $transition-fast;
+  
+  &:hover {
+    background: var(--color-bg-app);
+  }
+}
+
+@mixin button-pill {
+  @include button-primary;
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-10);
+  font-size: 15px;
+  box-shadow: var(--shadow-FAB);
+}
+
+// ─── INPUT ──────────────────────────────────────────────────
+@mixin input-base {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-input);
+  padding: var(--space-2) var(--space-3);
+  font: var(--text-body-lg);
+  transition: $transition-fast;
+  
+  &::placeholder {
+    color: var(--color-text-done);
+  }
+  
+  &:focus {
+    border: 2px solid var(--color-primary);
+    outline: none;
+  }
+}
+
+// ─── TAG / BADGE ────────────────────────────────────────────
+@mixin tag-base {
+  background: var(--color-bg-active-row);
+  color: var(--color-primary);
+  font: var(--text-meta);
+  font-weight: 500;
+  border-radius: var(--radius-tag);
+  padding: 2px var(--space-2);
 }

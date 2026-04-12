@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+// Note: Inter font is imported in _global.scss (avoid duplicate imports)
 
 html {
   font-size: 16px;
@@ -8,33 +8,54 @@ html {
 }
 
 body {
-  font-family: $font-sans;
-  font-size: $text-base;
-  color: $text-primary;
+  font-family: var(--font-sans);
+  font: var(--text-body-lg);
+  color: var(--color-text-primary);
 }
 
+// PRD v2 Typography Scale
 h1 {
-  font-size: $text-3xl;
-  font-weight: $font-bold;
-  line-height: $line-tight;
+  font: var(--text-heading-1);
+  color: var(--color-text-primary);
 }
+
 h2 {
-  font-size: $text-2xl;
-  font-weight: $font-bold;
-  line-height: $line-tight;
+  font: var(--text-heading-2);
+  color: var(--color-text-primary);
 }
+
 h3 {
-  font-size: $text-xl;
-  font-weight: $font-semibold;
-  line-height: $line-tight;
+  font: var(--text-body-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
+
 h4 {
-  font-size: $text-lg;
-  font-weight: $font-semibold;
-  line-height: $line-normal;
+  font: var(--text-body-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
+
 p {
-  font-size: $text-base;
-  line-height: $line-normal;
-  color: $text-secondary;
+  font: var(--text-body-lg);
+  color: var(--color-text-primary);
+}
+
+// Meta text (labels, timestamps)
+.text-meta {
+  font: var(--text-meta);
+  color: var(--color-text-secondary);
+}
+
+// Small labels
+.text-label {
+  font: var(--text-label);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+// Completed/done text styling
+.text-done {
+  color: var(--color-text-done);
+  text-decoration: line-through;
 }

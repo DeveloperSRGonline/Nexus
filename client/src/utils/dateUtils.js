@@ -9,6 +9,7 @@ import {
 export const formatDate = (date) => format(new Date(date), "MMM d, yyyy");
 export const formatShort = (date) => format(new Date(date), "MMM d");
 export const formatTime = (date) => format(new Date(date), "h:mm a");
+export { isToday }; // Re-export from date-fns
 export const isDateToday = (date) => isToday(new Date(date));
 export const isDateTomorrow = (date) => isTomorrow(new Date(date));
 export const isOverdue = (date) =>

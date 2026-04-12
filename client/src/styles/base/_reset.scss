@@ -1,3 +1,4 @@
+// ─── BOX MODEL ──────────────────────────────────────────────
 *,
 *::before,
 *::after {
@@ -5,26 +6,55 @@
   margin: 0;
   padding: 0;
 }
+
+// ─── MEDIA & EMBEDS ─────────────────────────────────────────
 img,
-video {
+video,
+svg,
+canvas {
   max-width: 100%;
   display: block;
 }
+
+// ─── INTERACTIVE ────────────────────────────────────────────
 button {
   cursor: pointer;
   border: none;
   background: none;
+  font: inherit;
+  color: inherit;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul,
 ol {
   list-style: none;
 }
+
+// ─── FORM ELEMENTS ──────────────────────────────────────────
 input,
 textarea,
-select {
+select,
+button {
   font: inherit;
+  color: inherit;
+}
+
+// ─── TEXT ───────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+// ─── TABLES ─────────────────────────────────────────────────
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }

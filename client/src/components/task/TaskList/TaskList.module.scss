@@ -1,0 +1,60 @@
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8, 32px);
+  text-align: center;
+  color: var(--text-secondary, #6B7280);
+  font-size: var(--text-sm, 14px);
+
+  p {
+    margin: 0;
+  }
+}
+
+.completedSection {
+  margin-top: var(--space-2, 8px);
+  border-top: 1px solid var(--color-border, #E5E5EA);
+}
+
+.completedHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1, 4px);
+  width: 100%;
+  padding: var(--space-2, 8px) var(--space-1, 4px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary, #6B7280);
+  font-size: var(--text-xs, 12px);
+  font-weight: var(--font-medium, 500);
+  text-align: left;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--text-primary, #1F2937);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.completedLabel {
+  flex: 1;
+}
+
+.completedList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--space-2, 8px);
+}

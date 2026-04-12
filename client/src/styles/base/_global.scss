@@ -1,24 +1,45 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
+// Import Inter font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  // Apply design system font
+  font-family: var(--font-sans);
 }
 
 html, body {
   height: 100%;
-  background-color: $bg-base;
-  color: $text-primary;
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
   overflow-x: hidden;
+  // Apply body typography
+  font: var(--text-body-lg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   height: 100%;
 }
 
+// Selection styling using brand color
 ::selection {
-  background: $accent-dim;
-  color: $accent;
+  background: var(--color-bg-active-row);
+  color: var(--color-primary);
 }
 
-* { @include custom-scrollbar; }
+// Custom scrollbar using new tokens
+* { 
+  @include custom-scrollbar; 
+}
+
+// Link styling using text-link token
+a {
+  color: var(--color-text-link);
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}

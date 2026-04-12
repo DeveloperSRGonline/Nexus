@@ -1,27 +1,68 @@
 .card {
   @include card-base;
   display: flex;
+  align-items: flex-start;
+  gap: $space-3;
   cursor: pointer;
   position: relative;
-  overflow: visible;
+  padding: $space-3 $space-4;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-task-card);
+  box-shadow: var(--shadow-resting);
+  transition: $transition-normal;
 
   &:hover {
-    background: $bg-hover;
+    box-shadow: var(--shadow-hover);
+    background: var(--color-bg-surface);
+  }
+
+  &.completed {
+    opacity: 0.6;
+
+    .title {
+      text-decoration: line-through;
+      color: var(--color-text-done);
+    }
+
+    .checkbox {
+      background: var(--color-text-done);
+      border-color: var(--color-text-done);
+    }
+  }
+
+  &.overdue {
+    .tagOverdue {
+      background: rgba(255, 59, 48, 0.1);
+      color: var(--color-danger);
+    }
   }
 }
 
-.strip {
-  width: 3px;
-  border-radius: $radius-lg 0 0 $radius-lg;
-  flex-shrink: 0;
+.checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: var(--radius-circle);
+  border: 2px solid;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: $transition-fast;
+
+  &:hover {
+    background: rgba(59, 91, 219, 0.1);
+  }
 }
 
 .body {
   flex: 1;
-  padding: $space-3 $space-4;
   display: flex;
   flex-direction: column;
   gap: $space-2;
+  min-width: 0;
 }
 
 .top {
@@ -31,16 +72,16 @@
 }
 
 .title {
-  font-size: $text-sm;
+  font-size: 14px;
   font-weight: $font-medium;
-  color: $text-primary;
+  color: var(--color-text-primary);
   @include truncate;
   flex: 1;
 }
 
 .desc {
-  font-size: $text-xs;
-  color: $text-muted;
+  font-size: 12px;
+  color: var(--color-text-secondary);
   @include truncate;
 }
 
@@ -48,30 +89,52 @@
   @include flex-start;
   gap: $space-2;
   flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.tagOverdue,
+.tagToday,
+.tagList {
+  padding: 2px 6px;
+  border-radius: var(--radius-tag);
+  font-size: 11px;
+  font-weight: $font-medium;
+}
+
+.tagOverdue {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--color-danger);
+}
+
+.tagToday {
+  background: rgba(59, 91, 219, 0.1);
+  color: var(--color-primary);
+}
+
+.tagList {
+  background: var(--color-divider);
+  color: var(--color-text-secondary);
 }
 
 .date {
   @include flex-start;
   gap: 4px;
-  font-size: 10px;
-  color: $text-muted;
+  font-size: 11px;
+  color: var(--color-text-secondary);
   margin-left: auto;
-
-  &.overdue {
-    color: $color-cancelled;
-  }
 }
 
 .menuBtn {
   @include flex-center;
   width: 24px;
   height: 24px;
-  border-radius: $radius-sm;
-  color: $text-muted;
+  border-radius: var(--radius-tag);
+  color: var(--color-text-secondary);
   flex-shrink: 0;
+  
   &:hover {
-    background: $bg-active;
-    color: $text-secondary;
+    background: var(--color-bg-active-row);
+    color: var(--color-text-primary);
   }
 }
 
@@ -80,10 +143,10 @@
   top: 100%;
   right: 0;
   z-index: 50;
-  background: $bg-elevated;
-  border: 1px solid $border-default;
-  border-radius: $radius-md;
-  box-shadow: $shadow-lg;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-dropdown);
+  box-shadow: var(--shadow-dropdown);
   min-width: 140px;
   padding: $space-1;
 
@@ -92,16 +155,187 @@
     gap: $space-2;
     width: 100%;
     padding: $space-2 $space-3;
-    font-size: $text-sm;
-    color: $text-secondary;
-    border-radius: $radius-sm;
+    font-size: 13px;
+    color: var(--color-text-primary);
+    border-radius: var(--radius-tag);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
     &:hover {
-      background: $bg-hover;
-      color: $text-primary;
+      background: var(--color-bg-active-row);
     }
 
     &.danger {
-      color: $color-cancelled;
+      color: var(--color-danger);
     }
+  }
+}
+
+.compact {
+  padding: $space-2 $space-3;
+  gap: $space-2;
+
+  .title {
+    font-size: 13px;
+  }
+
+  .meta {
+    font-size: 11px;
+  }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+}
+
+.uncompleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-tag);
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: $font-medium;
+  cursor: pointer;
+  transition: $transition-fast;
+  margin-left: auto;
+
+  &:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+}
+
+// Expanded detail section
+.expandIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-1 0;
+  color: var(--color-text-secondary);
+  margin-top: $space-1;
+}
+
+.detail {
+  margin-top: $space-3;
+  padding-top: $space-3;
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.detailSection {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.detailHeader {
+  @include flex-start;
+  gap: $space-2;
+  font-size: 12px;
+  font-weight: $font-medium;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: var(--radius-tag);
+  background: var(--color-divider);
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  font-weight: $font-medium;
+}
+
+.description {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  padding-left: $space-4;
+}
+
+.subtaskList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding-left: $space-4;
+}
+
+.subtaskItem {
+  @include flex-start;
+  gap: $space-2;
+  font-size: 12px;
+}
+
+.subtaskCheckbox {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: var(--radius-circle);
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-fast;
+}
+
+.subtaskTitle {
+  flex: 1;
+  color: var(--color-text-primary);
+  
+  &.subtaskCompleted {
+    text-decoration: line-through;
+    color: var(--color-text-done);
+  }
+}
+
+.tagList {
+  @include flex-start;
+  gap: $space-2;
+  flex-wrap: wrap;
+  padding-left: $space-4;
+}
+
+.tagChip {
+  padding: 2px 8px;
+  border-radius: var(--radius-tag);
+  background: rgba(59, 91, 219, 0.1);
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: $font-medium;
+}
+
+.attachmentList {
+  @include flex-start;
+  gap: $space-2;
+  flex-wrap: wrap;
+  padding-left: $space-4;
+}
+
+.attachmentChip {
+  @include flex-start;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-tag);
+  background: var(--color-divider);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background: var(--color-bg-active-row);
+    color: var(--color-primary);
   }
 }
