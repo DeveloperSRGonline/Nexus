@@ -1,147 +1,149 @@
-.habit-log-section {
-  background: var(--color-bg-surface);
+.habitLogSection {
+  background: var(--color-bg-surface, #FFFFFF);
   border-radius: 10px;
-  padding: var(--space-4);
-  box-shadow: var(--shadow-resting);
+  padding: var(--space-4, 16px);
+  box-shadow: var(--shadow-resting, 0 1px 3px rgba(0, 0, 0, 0.06));
+}
 
-  .section-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin: 0 0 var(--space-4) 0;
-    padding-bottom: var(--space-2);
-    border-bottom: 1px solid var(--color-divider);
-  }
+.sectionTitle {
+  font-size: 16px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-primary, #1C1C1E);
+  margin: 0 0 var(--space-4, 16px) 0;
+  padding-bottom: var(--space-2, 8px);
+  border-bottom: 1px solid var(--color-divider, #E5E5EA);
+}
 
-  .empty-state {
-    padding: var(--space-6);
-    text-align: center;
+.emptyState {
+  padding: var(--space-6, 24px);
+  text-align: center;
+}
 
-    p {
-      font-size: 14px;
-      color: var(--color-text-secondary);
-      margin: 0;
-    }
-  }
+.emptyState p {
+  font-size: 14px;
+  color: var(--color-text-secondary, #8E8E93);
+  margin: 0;
+}
 
-  .logs-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+.logsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+}
 
-    .log-entry {
-      padding: var(--space-3);
-      background: var(--color-bg-app);
-      border-radius: 8px;
+.logEntry {
+  padding: var(--space-3, 12px);
+  background: var(--color-bg-app, #F2F2F7);
+  border-radius: 8px;
+}
 
-      .log-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: var(--space-2);
+.logHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2, 8px);
+}
 
-        .log-date {
-          font-size: 13px;
-          font-weight: 600;
-          color: var(--color-text-primary);
-        }
+.logDate {
+  font-size: 13px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-primary, #1C1C1E);
+}
 
-        .edit-button {
-          width: 28px;
-          height: 28px;
-          border: none;
-          background: transparent;
-          color: var(--color-text-secondary);
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 6px;
-          transition: all 0.2s ease;
+.editButton {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary, #8E8E93);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
 
-          &:hover {
-            background: var(--color-bg-surface);
-            color: var(--color-primary);
-          }
-        }
-      }
+.editButton:hover {
+  background: var(--color-bg-surface, #FFFFFF);
+  color: var(--color-primary, #3B5BDB);
+}
 
-      .edit-mode {
-        .note-textarea {
-          width: 100%;
-          padding: var(--space-3);
-          border: 1px solid var(--color-divider);
-          border-radius: 6px;
-          font-size: 14px;
-          font-family: inherit;
-          resize: vertical;
-          background: var(--color-bg-surface);
-          transition: all 0.2s ease;
+.editMode {
+}
 
-          &:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.1);
-          }
-        }
+.noteTextarea {
+  width: 100%;
+  padding: var(--space-3, 12px);
+  border: 1px solid var(--color-divider, #E5E5EA);
+  border-radius: 6px;
+  font-size: var(--text-body-lg, 14px);
+  font-family: inherit;
+  resize: vertical;
+  background: var(--color-bg-surface, #FFFFFF);
+  transition: all 0.2s ease;
+}
 
-        .edit-actions {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          gap: var(--space-2);
-          margin-top: var(--space-2);
+.noteTextarea:focus {
+  outline: none;
+  border-color: var(--color-primary, #3B5BDB);
+  box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.1);
+}
 
-          .cancel-edit-button,
-          .save-note-button {
-            display: flex;
-            align-items: center;
-            gap: var(--space-1);
-            padding: var(--space-2) var(--space-3);
-            border: none;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
-            font-family: inherit;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          }
+.editActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2, 8px);
+  margin-top: var(--space-2, 8px);
+}
 
-          .cancel-edit-button {
-            background: transparent;
-            color: var(--color-text-secondary);
+.cancelEditButton,
+.saveNoteButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1, 4px);
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: var(--font-medium, 500);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-            &:hover {
-              background: var(--color-divider);
-            }
-          }
+.cancelEditButton {
+  background: transparent;
+  color: var(--color-text-secondary, #8E8E93);
+}
 
-          .save-note-button {
-            background: var(--color-primary);
-            color: white;
+.cancelEditButton:hover {
+  background: var(--color-divider, #E5E5EA);
+}
 
-            &:hover {
-              background: var(--color-primary-hover);
-            }
-          }
-        }
-      }
+.saveNoteButton {
+  background: var(--color-primary, #3B5BDB);
+  color: white;
+}
 
-      .log-content {
-        .log-note {
-          font-size: 14px;
-          color: var(--color-text-primary);
-          line-height: 1.5;
-          margin: 0;
-        }
+.saveNoteButton:hover {
+  background: var(--color-primary-hover, #4A6CF7);
+}
 
-        .log-note-placeholder {
-          font-size: 13px;
-          color: var(--color-text-secondary);
-          font-style: italic;
-          margin: 0;
-        }
-      }
-    }
-  }
+.logContent {
+}
+
+.logNote {
+  font-size: 14px;
+  color: var(--color-text-primary, #1C1C1E);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.logNotePlaceholder {
+  font-size: 13px;
+  color: var(--color-text-secondary, #8E8E93);
+  font-style: italic;
+  margin: 0;
 }

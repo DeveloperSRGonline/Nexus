@@ -1,118 +1,118 @@
-.reminder-picker {
+.reminderPicker {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 10;
-  padding: var(--space-2);
+  padding: var(--space-2, 8px);
+}
 
-  .content {
-    background: var(--color-bg-surface);
-    border-radius: 8px;
-    box-shadow: var(--shadow-dropdown);
-    padding: var(--space-4);
+.reminderPicker .content {
+  background: var(--color-bg-surface, #FFFFFF);
+  border-radius: 8px;
+  box-shadow: var(--shadow-dropdown, 0 8px 24px rgba(0, 0, 0, 0.12));
+  padding: var(--space-4, 16px);
+}
 
-    .header {
-      margin-bottom: var(--space-3);
+.reminderPicker .header {
+  margin-bottom: var(--space-3, 12px);
+}
 
-      h3 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-text-primary);
-      }
-    }
+.reminderPicker .header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-primary, #1C1C1E);
+}
 
-    .time-selector {
-      display: flex;
-      gap: var(--space-3);
-      margin-bottom: var(--space-4);
+.timeSelector {
+  display: flex;
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-4, 16px);
+}
 
-      .selector-column {
-        flex: 1;
+.selectorColumn {
+  flex: 1;
+}
 
-        .column-label {
-          display: block;
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--color-text-secondary);
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin-bottom: var(--space-2);
-        }
+.columnLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-secondary, #8E8E93);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-2, 8px);
+}
 
-        .scroll-list {
-          max-height: 200px;
-          overflow-y: auto;
-          border: 1px solid var(--color-divider);
-          border-radius: 8px;
+.scrollList {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--color-divider, #E5E5EA);
+  border-radius: 8px;
+}
 
-          .time-option {
-            width: 100%;
-            padding: var(--space-2) var(--space-3);
-            border: none;
-            background: transparent;
-            font-size: 14px;
-            font-family: inherit;
-            color: var(--color-text-primary);
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s ease;
+.timeOption {
+  width: 100%;
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-text-primary, #1C1C1E);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
 
-            &:hover {
-              background: var(--color-bg-app);
-            }
+.timeOption:hover {
+  background: var(--color-bg-app, #F2F2F7);
+}
 
-            &.selected {
-              background: var(--color-primary);
-              color: white;
-            }
-          }
-        }
-      }
-    }
+.timeOption.selected {
+  background: var(--color-primary, #3B5BDB);
+  color: white;
+}
 
-    .actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: var(--space-3);
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3, 12px);
+}
 
-      .cancel-button {
-        padding: var(--space-2) var(--space-4);
-        border: 1px solid var(--color-divider);
-        border-radius: 6px;
-        background: var(--color-bg-surface);
-        font-size: 13px;
-        font-family: inherit;
-        color: var(--color-text-primary);
-        cursor: pointer;
-        transition: all 0.2s ease;
+.cancelButton {
+  padding: var(--space-2, 8px) var(--space-4, 16px);
+  border: 1px solid var(--color-divider, #E5E5EA);
+  border-radius: 6px;
+  background: var(--color-bg-surface, #FFFFFF);
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-text-primary, #1C1C1E);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-        &:hover {
-          background: var(--color-bg-app);
-        }
-      }
+.cancelButton:hover {
+  background: var(--color-bg-app, #F2F2F7);
+}
 
-      .confirm-button {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        padding: var(--space-2) var(--space-4);
-        border: none;
-        border-radius: 6px;
-        background: var(--color-primary);
-        color: white;
-        font-size: 13px;
-        font-weight: 600;
-        font-family: inherit;
-        cursor: pointer;
-        transition: all 0.2s ease;
+.confirmButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  padding: var(--space-2, 8px) var(--space-4, 16px);
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary, #3B5BDB);
+  color: white;
+  font-size: 13px;
+  font-weight: var(--font-semibold, 600);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-        &:hover {
-          background: var(--color-primary-hover);
-        }
-      }
-    }
-  }
+.confirmButton:hover {
+  background: var(--color-primary-hover, #4A6CF7);
 }

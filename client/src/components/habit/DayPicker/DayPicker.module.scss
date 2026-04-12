@@ -1,78 +1,78 @@
-.day-picker {
+.dayPicker {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 10;
-  padding: var(--space-2);
+  padding: var(--space-2, 8px);
+}
 
-  .content {
-    background: var(--color-bg-surface);
-    border-radius: 8px;
-    box-shadow: var(--shadow-dropdown);
-    padding: var(--space-4);
+.dayPicker .content {
+  background: var(--color-bg-surface, #FFFFFF);
+  border-radius: 8px;
+  box-shadow: var(--shadow-dropdown, 0 8px 24px rgba(0, 0, 0, 0.12));
+  padding: var(--space-4, 16px);
+}
 
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: var(--space-3);
+.dayPicker .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3, 12px);
+}
 
-      h3 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-text-primary);
-      }
+.dayPicker .header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-primary, #1C1C1E);
+}
 
-      .select-all-button {
-        padding: var(--space-1) var(--space-3);
-        border: 1px solid var(--color-divider);
-        border-radius: 4px;
-        background: transparent;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-primary);
-        cursor: pointer;
-        transition: all 0.2s ease;
+.selectAllButton {
+  padding: var(--space-1, 4px) var(--space-3, 12px);
+  border: 1px solid var(--color-divider, #E5E5EA);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-primary, #3B5BDB);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-        &:hover {
-          background: var(--color-bg-app);
-        }
-      }
-    }
+.selectAllButton:hover {
+  background: var(--color-bg-app, #F2F2F7);
+}
 
-    .days-grid {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-2);
+.daysGrid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2, 8px);
+}
 
-      .day-circle {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid var(--color-divider);
-        background: var(--color-bg-surface);
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-text-secondary);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
+.dayCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-divider, #E5E5EA);
+  background: var(--color-bg-surface, #FFFFFF);
+  font-size: 14px;
+  font-weight: var(--font-semibold, 600);
+  color: var(--color-text-secondary, #8E8E93);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
 
-        &:hover {
-          border-color: var(--color-primary);
-        }
+.dayCircle:hover {
+  border-color: var(--color-primary, #3B5BDB);
+}
 
-        &.selected {
-          background: var(--color-primary);
-          border-color: var(--color-primary);
-          color: white;
-        }
-      }
-    }
-  }
+.dayCircle.selected {
+  background: var(--color-primary, #3B5BDB);
+  border-color: var(--color-primary, #3B5BDB);
+  color: white;
 }
